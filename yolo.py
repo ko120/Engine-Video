@@ -48,34 +48,38 @@ except Exception:
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-TRACK_CLASSES = [0, 1, 2, 7]  # COCO/raw IDs: person, bicycle, car, truck
+TRACK_CLASSES = [0, 1, 2, 3, 36]  # COCO/raw IDs: person, bicycle, car, motorcycle, skateboard
 CLASS_NAMES = {
-    0: "person",
-    1: "bicycle",
-    2: "car",
-    7: "truck",
+    0:  "person",
+    1:  "bicycle",
+    2:  "car",
+    3:  "motorcycle",
+    36: "skateboard",
 }
 
 # For YOLO training export only: contiguous IDs required by training datasets.
 TRAIN_ID_MAP = {
-    0: 0,
-    1: 1,
-    2: 2,
-    7: 3,
+    0:  0,
+    1:  1,
+    2:  2,
+    3:  3,
+    36: 4,
 }
 TRAIN_CLASS_NAMES = {
     0: "person",
     1: "bicycle",
     2: "car",
-    3: "truck",
+    3: "motorcycle",
+    4: "skateboard",
 }
 
 # Per-class (min_w/h, max_w/h) aspect-ratio limits
 CLASS_ASPECT_LIMITS: dict[int, tuple[float, float]] = {
-    0: (0.15, 1.50),  # person
-    1: (0.50, 3.00),  # bicycle
-    2: (0.50, 4.00),  # car
-    7: (0.50, 5.00),  # truck
+    0:  (0.15, 1.50),  # person
+    1:  (0.50, 3.00),  # bicycle
+    2:  (0.50, 4.00),  # car
+    3:  (0.40, 3.00),  # motorcycle
+    36: (0.30, 4.00),  # skateboard
 }
 
 MIN_BOX_AREA_FRAC = 5e-4
